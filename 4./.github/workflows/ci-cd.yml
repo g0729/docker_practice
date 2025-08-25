@@ -4,7 +4,7 @@ on:
     push:
         branches: ["main"]
         paths:
-            - "4./**"
+            - '4/**'
 
 jobs:
     build-and-push:
