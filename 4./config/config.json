@@ -10,7 +10,7 @@
        "username": "myuser",
        "password": "mypassword",
        "database": "mydb_test",
-       "host": "127.0.0.1",
+       "host": "db",
        "dialect": "postgres"
      },
      "production": {
