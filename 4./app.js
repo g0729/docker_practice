@@ -1,4 +1,5 @@
 import express from "express";
+// This is a test change to trigger CI
 import db from "./models/index.js";
 import Post from "./models/post.js";
 const app = express();
