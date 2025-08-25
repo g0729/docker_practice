@@ -16,7 +16,7 @@ jobs:
                 working-directory: ./4.
 
         services:
-            postgres:
+            db:
                 image: postgres:15-alpine
 
                 env:
