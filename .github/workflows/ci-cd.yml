@@ -22,7 +22,8 @@ jobs:
                 env:
                     POSTGRES_USER: myuser
                     POSTGRES_PASSWORD: mypassword
-                    POSTGRES_DB: mydb
+                    POSTGRES_DB: mydb_test
+                    POSTGRES_HOST_AUTH_METHOD: trust
                 ports:
                     - 5432:5432
                 options: >-
