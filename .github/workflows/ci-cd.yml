@@ -44,6 +44,8 @@ jobs:
               run: npm install
 
             - name: Run Unit & Integration Test
+              needs: db
+              if: success()
               env:
                   POSTGRES_USER: myuser
                   POSTGRES_PASSWORD: mypassword
