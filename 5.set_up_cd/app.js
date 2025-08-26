@@ -1,7 +1,6 @@
 import express from "express";
 import db from "./models/index.js";
 import Post from "./models/post.js";
-//Triggerasdf
 
 const app = express();
 app.use(express.json());
