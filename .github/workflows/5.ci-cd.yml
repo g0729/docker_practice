@@ -5,7 +5,7 @@ on:
     push:
         branches: ["main"]
         paths:
-            - "5. set up cd/**"
+            - "5.set_up_cd/**"
 
 jobs:
     build-and-push:
@@ -13,7 +13,7 @@ jobs:
 
         defaults:
             run:
-                working-directory: ./5. set up cd
+                working-directory: ./5.set_up_cd
 
         steps:
             - name: Checkout source code
@@ -24,7 +24,7 @@ jobs:
               with:
                   node-version: "18"
                   cache: "npm"
-                  cache-dependency-path: 5. set up cd/package-lock.json
+                  cache-dependency-path: 5.set_up_cd/package-lock.json
             - name: Install dependencies
               run: npm install
 
@@ -59,8 +59,8 @@ jobs:
             - name: Build and push Docker Image
               uses: docker/build-push-action@v5
               with:
-                  context: ./5. set up cd
-                  file: ./5. set up cd/dockerfile
+                  context: ./5.set_up_cd
+                  file: ./5.set_up_cd/dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-repo:latest
     deploy:
@@ -75,7 +75,7 @@ jobs:
                   username: ${{secrets.USERNAME}}
                   key: ${{secrets.SSH_PRIVATE_KEY}}
                   script: |
-                      cd "~/my-blog-api/docker_practice/5. set up cd"
+                      cd "~/my-blog-api/docker_practice/5._set_up_cd"
 
                       git pull origin main
 

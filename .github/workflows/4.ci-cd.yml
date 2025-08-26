@@ -5,7 +5,7 @@ on:
     push:
         branches: ["main"]
         paths:
-            - "4. set up i/**"
+            - "4.set_up_ci/**"
 
 jobs:
     build-and-push:
@@ -13,7 +13,7 @@ jobs:
 
         defaults:
             run:
-                working-directory: ./4. set up ci
+                working-directory: ./4.set_up_ci
 
         steps:
             - name: Checkout source code
@@ -58,7 +58,7 @@ jobs:
             - name: Build and push Docker Image
               uses: docker/build-push-action@v5
               with:
-                  context: ./4 set up ci
-                  file: ./4 set up c./dockerfile
+                  context: ./4.set_up_ci
+                  file: ./4.set_up_ci/dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-repo:latest
