@@ -79,6 +79,6 @@ jobs:
 
                       git pull origin main
 
-                      docker-compose pull
+                      docker-compose -f ./5. set up cd/docker-compose.yaml pull
 
-                      docker-compose up -d
+                      docker-compose up -f -f ./5. set up cd/docker-compose.yaml -d
