@@ -58,7 +58,7 @@ jobs:
             - name: Build and push Docker Image
               uses: docker/build-push-action@v5
               with:
-                  context: ./4.
-                  file: ./4./dockerfile
+                  context: ./4 set up ci
+                  file: ./4 set up c./dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-repo:latest
