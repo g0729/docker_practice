@@ -5,7 +5,7 @@ on:
     push:
         branches: ["main"]
         paths:
-            - "4./**"
+            - "4. set up i/**"
 
 jobs:
     build-and-push:
@@ -13,7 +13,7 @@ jobs:
 
         defaults:
             run:
-                working-directory: ./4.
+                working-directory: ./4. set up ci
 
         steps:
             - name: Checkout source code
