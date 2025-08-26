@@ -5,7 +5,7 @@ on:
     push:
         branches: ["main"]
         paths:
-            - '4./**'
+            - "4./**"
 
 jobs:
     build-and-push:
@@ -15,20 +15,6 @@ jobs:
             run:
                 working-directory: ./4.
 
-        services:
-            db:
-                image: postgres:15-alpine
-
-                env:
-                    POSTGRES_USER: myuser
-                    POSTGRES_PASSWORD: mypassword
-                    POSTGRES_DB: mydb_test
-                    POSTGRES_HOST_AUTH_METHOD: trust
-                options: >-
-                        --health-cmd pg_isready
-                        --health-interval 10s
-                        --health-timeout 5s
-                        --health-retries 5
         steps:
             - name: Checkout source code
               uses: actions/checkout@v4
@@ -39,16 +25,9 @@ jobs:
                   node-version: "18"
 
             - name: Install dependencies
-              run: npm install
+              run: docker compose up --build
 
             - name: Run Unit & Integration Test
-              needs: db
-              if: success()
-              env:
-                  POSTGRES_USER: myuser
-                  POSTGRES_PASSWORD: mypassword
-                  POSTGRES_DB: mydb_test
-                  NODE_ENV: ci_test
               run: npm test
 
             - name: Login to Docker Hub
