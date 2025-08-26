@@ -13,13 +13,6 @@
        "host": "localhost",
        "dialect": "postgres"
      },
-     "ci_test": {
-       "username": "myuser",
-       "password": "mypassword",
-       "database": "mydb_test",
-       "host": "db",
-       "dialect": "postgres"
-     },
      "production": {
        "username": "myuser",
        "password": "mypassword",

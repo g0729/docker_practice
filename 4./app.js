@@ -1,18 +1,16 @@
 import express from "express";
-// This is a test change to trigger CI
-// Another change for CI trigger
 import db from "./models/index.js";
 import Post from "./models/post.js";
 const app = express();
 app.use(express.json());
 
-if (process.env.NODE_ENV !== 'test') {
-  db.sequelize
-    .sync({ force: false })
-    .then(() => console.log("database connected"))
-    .catch((err) => {
-      console.error(err);
-    });
+if (process.env.NODE_ENV !== "test") {
+	db.sequelize
+		.sync({ force: false })
+		.then(() => console.log("database connected"))
+		.catch((err) => {
+			console.error(err);
+		});
 }
 
 app.get("/posts", async (req, res) => {
