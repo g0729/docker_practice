@@ -2,7 +2,6 @@ import express from "express";
 import db from "./models/index.js";
 import Post from "./models/post.js";
 
-//Trigger
 const app = express();
 app.use(express.json());
 
