@@ -29,7 +29,7 @@ jobs:
               run: docker volume create docker_practice
 
             - name: Docker compose build
-              run: docker compose up --build
+              run: docker compose up -d
 
             - name: Run Unit & Integration Test
               run: npm test
