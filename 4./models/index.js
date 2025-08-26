@@ -14,10 +14,6 @@ const config = Config[env];
 const sequelize = new Sequelize(config.database,config.username,config.password,config);
 
 
-console.log("====================================");
-console.log(`DB Host being used: ${config.host}`);
-console.log(`DB User being used: ${config.username}`);
-console.log("====================================");
 const db = {};
 db.sequelize=sequelize;
 

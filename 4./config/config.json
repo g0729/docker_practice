@@ -3,14 +3,14 @@
        "username": "myuser",
        "password": "mypassword",
        "database": "mydb",
-       "host": "localhost",
+       "host": "db",
        "dialect": "postgres"
      },
      "test": {
        "username": "myuser",
        "password": "mypassword",
        "database": "mydb_test",
-       "host": "db",
+       "host": "localhost",
        "dialect": "postgres"
      },
      "ci_test": {
