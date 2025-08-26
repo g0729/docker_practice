@@ -9,7 +9,7 @@
      "test": {
        "username": "myuser",
        "password": "mypassword",
-       "database": "mydb_test",
+       "database": "mydb",
        "host": "localhost",
        "dialect": "postgres"
      },
