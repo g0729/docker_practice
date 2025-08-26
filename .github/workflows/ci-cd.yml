@@ -31,6 +31,9 @@ jobs:
             - name: Docker compose build
               run: docker compose up -d
 
+            - name: Wait for services
+              run: sleep 15
+
             - name: Run Unit & Integration Test
               run: npm test
 
