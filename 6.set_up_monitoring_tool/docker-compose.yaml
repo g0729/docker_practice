@@ -1,0 +1,56 @@
+version : '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports: 
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api-server
+    
+  api-server:
+    build: .
+    env_file:
+      - ./.env
+    depends_on: 
+        db:
+          condition: service_healthy
+    restart: on-failure
+  
+
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - ./.env
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "5432:5432"
+    volumes:
+      - docker_practice:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+      interval: 10s   
+      timeout: 5s     
+      retries: 5 
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - api-server
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000" 
+    depends_on:
+      - prometheus  
+volumes:
+  docker_practice: 
+    external: true
